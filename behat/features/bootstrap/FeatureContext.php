@@ -35,4 +35,11 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iShouldNotHaveAccessToThePage() {
     $this->assertSession()->statusCodeEquals('403');
   }
+
+  /**
+   * @Given I login with :arg1
+   */
+  public function iLoginWith($subdomain) {
+    $this->getSession()->visit('http://unfpa:every1counts@' . $subdomain);
+  }
 }
